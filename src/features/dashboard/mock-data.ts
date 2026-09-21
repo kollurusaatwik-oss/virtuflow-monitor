@@ -13,7 +13,7 @@ export const initialNodes: InfraNode[] = [
 ];
 
 const cpu = [38,42,40,46,51,49,55,61,57,68,72,65,78,82,74,67,63,69,58,54,60,56,52,50];
-export const initialMetrics = Array.from({ length: 24 }, (_, i) => ({ time: `${String(16 + Math.floor(i / 6)).padStart(2,"0")}:${String((i % 6) * 10).padStart(2,"0")}`, cpu: cpu[i], memory: 43 + Math.round(i * .7) + (i % 3), network: 320 + ((i * 137) % 1040), energy: +(1.1 + cpu[i] / 80).toFixed(1), execution: 55 + ((i * 17) % 72), latency: 8 + ((i * 11) % 48) }));
+export const initialMetrics = Array.from({ length: 24 }, (_, i) => { const cpuValue = cpu[i] ?? 50; return { time: `${String(16 + Math.floor(i / 6)).padStart(2,"0")}:${String((i % 6) * 10).padStart(2,"0")}`, cpu: cpuValue, memory: 43 + Math.round(i * .7) + (i % 3), network: 320 + ((i * 137) % 1040), energy: +(1.1 + cpuValue / 80).toFixed(1), execution: 55 + ((i * 17) % 72), latency: 8 + ((i * 11) % 48) }; });
 
 export const initialWorkloads = [
   ["W-101","IoT-01","Image Processing","2 CPU","1 GB","High","Edge-02","Running","00:00:12"],
