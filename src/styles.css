@@ -156,6 +156,7 @@
 }
 
 @utility panel {
+  min-width: 0;
   border: 1px solid var(--border);
   background: color-mix(in oklab, var(--card) 96%, transparent);
   padding: 1rem;
